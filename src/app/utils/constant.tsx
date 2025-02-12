@@ -1,0 +1,1 @@
+export const SECRET_KEY: string = process.env.NEXT_PUBLIC_SECRET_KEY || "LETS_KEEP_THIS_SECRET"
