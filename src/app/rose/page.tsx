@@ -2,6 +2,7 @@
 import React, { Suspense } from 'react';
 import { useSearchParams } from 'next/navigation'
 import { SECRET_KEY } from '../utils/constant';
+import { ClipboardCopy } from "lucide-react";
 import hmacSHA512 from 'crypto-js/hmac-sha256';
 import Base64 from 'crypto-js/enc-base64';
 
@@ -13,7 +14,7 @@ function RoseView() {
     difficulty: 0
   });
   const [error, setError] = React.useState<string | null>(null);  
-  
+  const showCopy = searchParams.get('showCopy');
   React.useEffect(() => {
     let hash = searchParams.get('hash');
     hash = decodeURIComponent(hash || '');
@@ -60,6 +61,27 @@ function RoseView() {
     positions = positions.map((pos) => pos + 80);
     return positions;
   }
+  function removeQueryParam(url: string, param: string ) {
+      try {
+          const urlObj = new URL(url);
+          urlObj.searchParams.delete(param);
+          return urlObj.toString();
+      } catch (error) {
+          console.error("Invalid URL:", error);
+          return url; // Return the original URL if an error occurs
+      }
+  }
+  const copyToClipboard = async () => {
+    try {
+      const url = removeQueryParam(window.location.href, 'showCopy')
+      await navigator.clipboard.writeText(url);
+
+      alert("Link copied to clipboard!");
+    } catch (err) {
+      console.error("Failed to copy: ", err);
+    }
+  };
+
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-pink-200 to-pink-200 py-16 px-4">
@@ -120,8 +142,18 @@ function RoseView() {
           </div>
         )}
       </div>
-
-    </div>
+      {showCopy && (
+        <button
+          onClick={copyToClipboard}
+          className="px-4 py-2 m-10 bg-blue-500 text-white rounded flex items-center gap-2 hover:bg-blue-600"
+          >
+            <ClipboardCopy />
+            <span>Copy to Clipboard</span>
+        </button>
+      )
+      }
+</div>
+    
   );
 }
 

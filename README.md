@@ -1,36 +1,22 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Effortless ROSE
 
-## Getting Started
+Why is the rose a universal metaphor for love and intimacy, and not any other flower? The answer lies in its thorns.
 
-First, run the development server:
+When you give someone a rose, you are telling them that amidst all the thorns, they are the one rose you’ve been searching for. The act of giving a rose is more than just a romantic gesture—it symbolizes the effort and struggle required to find that special person in life. Before reaching the rose, one must first navigate through the thorns.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Yet, today’s generation is so fixated on finding the rose that they have forgotten the significance of the thorns. They want the beauty without the struggle, the reward without the journey. They give roses without thorns—both literally and metaphorically—overlooking the effort that true love demands.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Real love isn’t just about finding the rose; it’s about embracing the thorns along the way.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+# How are we capturing the Effort
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+The idea is to generate a link that contains data along with a signature of that data.
 
-## Learn More
+Anyone can verify the signature's validity using the public key. By establishing the application as a reliable source of truth, it can generate the signature using a private key securely stored on the server.
 
-To learn more about Next.js, take a look at the following resources:
+# RISK
+They idea works as long as the private key is safe any application that has a risk of exposing that primary key never implement the idea , and that includes all client facing applications
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
-## Deploy on Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
